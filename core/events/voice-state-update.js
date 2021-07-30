@@ -6,20 +6,18 @@ async function execute(oldMember, newMember) {
 
     if (!newMember.channel || !newMember.member) {
         const role = newMember.guild.roles.cache.find(r => r.id === roles.VC);
-        newMember.member.roles.remove(role);
+        await newMember.member.roles.remove(role);
         return;
     }
 
-    if (channelId == channels.GeneralVC || channelId == channels.MusicVC) {
+    if (channelId === channels.GeneralVC || channelId === channels.MusicVC) {
         const role = newMember.guild.roles.cache.find(r => r.id === roles.VC);
         if (!newMember.member.roles.cache.has(role)) {
-            newMember.member.roles.add(role);
+            await newMember.member.roles.add(role);
         }
-    }
-    else {
+    } else {
         const role = newMember.guild.roles.cache.find(r => r.id === roles.VC);
-        newMember.member.roles.remove(role);
-        return;
+        await newMember.member.roles.remove(role);
     }
 }
 

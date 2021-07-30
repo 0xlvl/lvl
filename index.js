@@ -23,26 +23,25 @@ for (const cmd of commandFiles) {
 }
 
 client.on('message', async (message) => {
-    messageEvent.execute(message, client);
+    await messageEvent.execute(message, client);
 });
 
 client.on("messageReactionAdd", async (reaction, user) => {
-    messageReactionAdd.execute(reaction, user, client);
+    await messageReactionAdd.execute(reaction, user, client);
 });
 
 client.on("guildMemberAdd", async (member) => {
-    guildMemberAdd.execute(member, client);
+    await guildMemberAdd.execute(member, client);
 });
 
 client.on("guildMemberRemove", async (member) => {
-    guildMemberRemove.execute(member, client);
+    await guildMemberRemove.execute(member, client);
 });
 
 client.on("voiceStateUpdate", async (oldMember, newMember) => {
-    voiceStateUpdate.execute(oldMember, newMember);
+    await voiceStateUpdate.execute(oldMember, newMember);
 });
 
 database.connect();
 
-client.login(process.env.TOKEN);
-console.log("Logged in.");
+client.login(process.env.TOKEN).then(() => console.log("Logged in."));

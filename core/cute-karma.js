@@ -19,19 +19,19 @@ const reactions =
     ]
 
 module.exports =
-{
-    execute(reaction, channel) {
-        const react = reactions[random.int(0, reactions.length)];
+    {
+        execute(reaction, channel) {
+            const react = reactions[random.int(0, reactions.length)];
 
-        const embed = new Discord.MessageEmbed()
-            .setColor(colors.ai)
-            .setTitle("#")
-            .setURL(reaction.message.url)
-            .setAuthor(`by ${reaction.message.author.username} in ${reaction.message.channel.name}`, reaction.message.author.displayAvatarURL())
-            .setDescription(reaction.message)
-            .setTimestamp()
-            .setFooter(react);
+            const embed = new Discord.MessageEmbed()
+                .setColor(colors.ai)
+                .setTitle("#")
+                .setURL(reaction.message.url)
+                .setAuthor(`by ${reaction.message.author.username} in ${reaction.message.channel.name}`, reaction.message.author.displayAvatarURL())
+                .setDescription(reaction.message)
+                .setTimestamp()
+                .setFooter(react);
 
-        channel.send(embed);
+            channel.send(embed);
+        }
     }
-}

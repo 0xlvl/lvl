@@ -24,9 +24,9 @@ async function execute(member, client) {
     client.channels.fetch(channels.chat)
         .then(channel => {
             if (!member.user.bot) {
-                channel.send(stringTemplateParser(welcome.list[welcome.list.length * Math.random() | 0], { member: member.user }));
-            }
-            else {
+                //Send welcome message
+                channel.send(stringTemplateParser(welcome.list[welcome.list.length * Math.random() | 0], {member: member.user}));
+            } else {
                 channel.send(`We have got some bot support! Welcome, ${member.user} :tada:`);
             }
         });
@@ -49,11 +49,10 @@ async function execute(member, client) {
 
 function stringTemplateParser(expression, valueObj) {
     const templateMatcher = /{{\s?([^{}\s]*)\s?}}/g;
-    let text = expression.replace(templateMatcher, (substring, value, index) => {
+    return expression.replace(templateMatcher, (substring, value, index) => {
         value = valueObj[value];
         return value;
     });
-    return text;
 }
 
 exports.execute = execute;

@@ -7,15 +7,14 @@ async function execute(reaction, user, client) {
     if (reaction.partial) {
         try {
             await reaction.fetch();
-        }
-        catch (error) {
+        } catch (error) {
             console.error("Failed to fetch reaction: ", error);
             return;
         }
     }
 
-    if (reaction.message.channel.id != channels.aww) {
-        if (reaction.emoji.name == "❤️") {
+    if (reaction.message.channel.id !== channels.aww) {
+        if (reaction.emoji.name === "❤️") {
             if (reaction.count >= config.heartCount) {
                 client.channels.fetch(channels.aww)
                     .then(channel => {

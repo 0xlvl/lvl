@@ -10,58 +10,47 @@ async function levelUp(message, lvl) {
         const result = addRank(roles.HOLOGRAM, "HOLOGRAM 🔮", message);
         unlocked = result.isUnlocked;
         role = result.roleName;
-    }
-    else if (lvl >= 77) {
+    } else if (lvl >= 77) {
         const result = addRank(roles.ShadowDevice, "Shadow Device 👤", message);
         unlocked = result.isUnlocked;
         role = result.roleName;
-    }
-    else if (lvl >= 60) {
+    } else if (lvl >= 60) {
         const result = addRank(roles.NASA_PC, "NASA PC 🌌", message);
         unlocked = result.isUnlocked;
         role = result.roleName;
-    }
-    else if (lvl >= 50) {
+    } else if (lvl >= 50) {
         const result = addRank(roles.RTX_ON, "RTX ON 🌳", message);
         unlocked = result.isUnlocked;
         role = result.roleName;
-    }
-    else if (lvl >= 40) {
+    } else if (lvl >= 40) {
         const result = addRank(roles.RTX_OFF, "RTX OFF ❌", message);
         unlocked = result.isUnlocked;
         role = result.roleName;
-    }
-    else if (lvl >= 30) {
+    } else if (lvl >= 30) {
         const result = addRank(roles.RGB_PC, "RGB PC 🌈", message);
         unlocked = result.isUnlocked;
         role = result.roleName;
-    }
-    else if (lvl >= 25) {
+    } else if (lvl >= 25) {
         const result = addRank(roles.AestheticPC, "Aesthetic PC 🌸", message);
         unlocked = result.isUnlocked;
         role = result.roleName;
-    }
-    else if (lvl >= 19) {
+    } else if (lvl >= 19) {
         const result = addRank(roles.GamingPC, "Gaming PC 🎮", message);
         unlocked = result.isUnlocked;
         role = result.roleName;
-    }
-    else if (lvl >= 13) {
+    } else if (lvl >= 13) {
         const result = addRank(roles.Desktop, "Desktop 🖥️", message);
         unlocked = result.isUnlocked;
         role = result.roleName;
-    }
-    else if (lvl >= 8) {
+    } else if (lvl >= 8) {
         const result = addRank(roles.Laptop, "Laptop 💻", message);
         unlocked = result.isUnlocked;
         role = result.roleName;
-    }
-    else if (lvl >= 4) {
+    } else if (lvl >= 4) {
         const result = addRank(roles.Toaster, "Toaster 🍞", message);
         unlocked = result.isUnlocked;
         role = result.roleName;
-    }
-    else if (lvl >= 2) {
+    } else if (lvl >= 2) {
         const result = addRank(roles.PotatoPC, "Potato PC 🥔", message);
         unlocked = result.isUnlocked;
         role = result.roleName;
@@ -85,9 +74,8 @@ function addRank(id, name, message) {
             isUnlocked: true,
             roleName: role
         };
-    }
-    else {
-        return { isUnlocked: false, roleName: "" };
+    } else {
+        return {isUnlocked: false, roleName: ""};
     }
 }
 

@@ -4,7 +4,7 @@ const config = require("./config/config.json");
 function filter(message) {
     const msg = message.content.toLowerCase();
 
-    if (message.author.id != config.ownerID) {
+    if (message.author.id !== config.ownerID) {
         for (const link of blacklisted.links) {
             if (msg.includes(link)) {
                 message.delete();
@@ -21,10 +21,12 @@ function filter(message) {
     }
 
     for (const word of blacklisted.words) {
-        const msgArray = msg.split(/(\s+)/).filter(function (e) { return e.trim().length > 0; });
+        const msgArray = msg.split(/(\s+)/).filter(function (e) {
+            return e.trim().length > 0;
+        });
 
         for (const item of msgArray) {
-            if (item == word) {
+            if (item === word) {
                 message.delete();
                 message.channel.send(`${message.author} watch your language.`)
                     .then(temp => {
@@ -39,4 +41,4 @@ function filter(message) {
     return false;
 }
 
-module.exports = { filter }
+module.exports = {filter}

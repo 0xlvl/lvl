@@ -18,7 +18,7 @@ module.exports = {
             chat.send(stringTemplateParser(welcome.list[welcome.list.length * Math.random() | 0], {member: member.user}));
 
             setTimeout(() => {
-                chat.send(`${member.user} feel free to get some ${channels.roles} :)`);
+                chat.send(`${member.user} feel free to get some <#${channels.roles}> :)`);
             }, 1700);
         } else {
             if (!member.roles.cache.find(r => r.name === "Futurist")) {

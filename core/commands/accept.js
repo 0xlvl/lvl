@@ -15,7 +15,10 @@ module.exports = {
             message.lineReply(`${emojis.AI_Tick} **Verification successful**`);
 
             const chat = member.guild.channels.cache.get(channels.chat);
-            chat.send(stringTemplateParser(welcome.list[welcome.list.length * Math.random() | 0], {member: member.user}));
+
+            setTimeout(() => {
+                chat.send(stringTemplateParser(welcome.list[welcome.list.length * Math.random() | 0], {member: member.user}));
+            }, 700);
 
             setTimeout(() => {
                 chat.send(`${member.user} feel free to get some <#${channels.roles}> :)`);

@@ -1,7 +1,6 @@
 const profileModel = require("../models/profile-schema.js");
 const config = require("../config/config.json");
 const channels = require("../config/channels.json");
-const welcome = require("../config/welcome.json");
 
 async function execute(member, client) {
     //let profile = await profileModel.create({
@@ -25,7 +24,6 @@ async function execute(member, client) {
         .then(channel => {
             if (!member.user.bot) {
                 //Send welcome message
-                channel.send(stringTemplateParser(welcome.list[welcome.list.length * Math.random() | 0], {member: member.user}));
             } else {
                 channel.send(`We have got some bot support! Welcome, ${member.user} :tada:`);
             }
@@ -45,14 +43,6 @@ async function execute(member, client) {
             member.roles.remove(role);
         }
     }, 20 * 60000);
-}
-
-function stringTemplateParser(expression, valueObj) {
-    const templateMatcher = /{{\s?([^{}\s]*)\s?}}/g;
-    return expression.replace(templateMatcher, (substring, value, index) => {
-        value = valueObj[value];
-        return value;
-    });
 }
 
 exports.execute = execute;

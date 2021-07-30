@@ -2,6 +2,8 @@ const Discord = require("discord.js");
 
 const database = require("./core/database.js");
 
+const keepAlive = require("./server.js");
+
 const messageEvent = require('./core/events/message.js');
 const messageReactionAdd = require("./core/events/message-reaction-add.js");
 const guildMemberAdd = require("./core/events/guild-member-add.js");
@@ -42,6 +44,6 @@ client.on("voiceStateUpdate", async (oldMember, newMember) => {
     await voiceStateUpdate.execute(oldMember, newMember);
 });
 
-database.connect();
-
+//database.connect();
+keepAlive();
 client.login(process.env.TOKEN).then(() => console.log("Logged in."));

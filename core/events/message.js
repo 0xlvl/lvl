@@ -39,7 +39,6 @@ async function execute(message, client) {
         } else {
             message.channel.send(emojis.Wother);
         }
-
     }
 
     //profileData.totalMessages++;
@@ -97,7 +96,6 @@ async function execute(message, client) {
     const args = message.content.slice(config.prefix.length).trim().split(/ +/);
     const commandItem = args.shift().toLowerCase();
     if (!client.commands.has(commandItem)) return;
-
     const command = client.commands.get(commandItem);
     try {
         command.execute(message, args, profileData);

@@ -35,9 +35,9 @@ async function execute(message, client) {
 
     if (message.content.toLowerCase() === "-_-" || message.content.toLowerCase() === "😑") {
         if (Math.random() < 0.5) {
-            message.channel.send(emojis.Wither);
+            message.channel.send(`${emojis.Wither} .`);
         } else {
-            message.channel.send(emojis.Wother);
+            message.channel.send(`${emojis.Wother} .`);
         }
     }
 

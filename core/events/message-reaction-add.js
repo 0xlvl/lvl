@@ -16,14 +16,13 @@ async function execute(reaction, user, client) {
     if (reaction.message.channel.id !== channels.aww) {
         if (reaction.emoji.name === "❤️") {
             if (reaction.count >= config.heartCount) {
-                if(!reaction.me)
-                {
-                  reaction.message.react("❤️");
+                if (!reaction.me) {
+                    await reaction.message.react("❤️");
 
-                  client.channels.fetch(channels.aww)
-                      .then(channel => {
-                          cuteKarma.execute(reaction, channel);
-                      }); 
+                    client.channels.fetch(channels.aww)
+                        .then(channel => {
+                            cuteKarma.execute(reaction, channel);
+                        });
                 }
             }
         }

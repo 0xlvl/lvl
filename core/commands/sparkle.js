@@ -14,7 +14,7 @@ module.exports = {
         let msg = "";
 
         for (const word of args) {
-            msg += args + " ";
+            msg += word + " ";
         }
 
         const decorated = `**✨ ${msg}✨**`;

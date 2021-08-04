@@ -22,12 +22,11 @@ async function execute(member, client) {
 
     client.channels.fetch(channels.chat)
         .then(channel => {
-            if (!member.user.bot) {
-                //Send welcome message
-            } else {
-                channel.send(`We have got some bot support! Welcome, ${member.user} :tada:`);
+                if (member.user.bot && member.user.id !== config.thisID) {
+                    channel.send(`We have got some bot support! Welcome, ${member.user} :tada:`);
+                }
             }
-        });
+        );
 
     if (member.user.bot) return;
 

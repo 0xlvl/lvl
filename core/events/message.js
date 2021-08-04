@@ -2,6 +2,7 @@ const random = require("random");
 
 const profileModel = require("../models/profile-schema");
 const config = require("../config/config.json");
+const emojis = require("../config/emojis.json");
 
 const chatFilter = require("../chat-filter");
 const statsManager = require("../stats-manager");
@@ -33,7 +34,11 @@ async function execute(message, client) {
     if (chatFilter.filter(message)) return;
 
     if (message.content.toLowerCase() === "-_-" || message.content.toLowerCase() === "😑") {
-        message.channel.send("<:wither:849840848837410816>");
+        if (Math.random() < 0.5) {
+            message.channel.send(emojis.Wither);
+        } else {
+            message.channel.send(emojis.Wother);
+        }
     }
 
     //profileData.totalMessages++;

@@ -9,8 +9,6 @@ module.exports = {
             return;
         }
 
-        args.shift();
-
         let msg = "";
 
         for (const word of args) {

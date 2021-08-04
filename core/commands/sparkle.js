@@ -12,7 +12,6 @@ module.exports = {
         let msg = "";
 
         for (const word of args) {
-            console.log(word);
             msg += word + " ";
         }
 

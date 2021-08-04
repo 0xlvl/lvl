@@ -16,6 +16,13 @@ async function execute(reaction, user, client) {
     if (reaction.message.channel.id !== channels.aww) {
         if (reaction.emoji.name === "❤️") {
             if (reaction.count >= config.heartCount) {
+
+                for (const test of reaction) {
+                    console.log(test);
+                }
+
+                return;
+
                 client.channels.fetch(channels.aww)
                     .then(channel => {
                         cuteKarma.execute(reaction, channel);
